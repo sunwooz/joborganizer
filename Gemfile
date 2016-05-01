@@ -22,6 +22,7 @@ gem 'indeed-ruby'
 gem 'devise'
 gem 'haml-rails'
 gem 'pry'
+gem 'indeed_api'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
