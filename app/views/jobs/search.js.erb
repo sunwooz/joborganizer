@@ -1,1 +1,1 @@
-$('#results').append("<%= j @jobs.results[0].company %>")
+$('#results').append("<%= j render(:partial => 'jobs/results', :locals => { :jobs => @jobs }) %>");
