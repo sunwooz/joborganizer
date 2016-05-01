@@ -19,6 +19,9 @@ gem 'jquery-rails'
 gem 'puma'
 gem 'indeed-ruby'
 
+gem 'devise'
+gem 'haml-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
