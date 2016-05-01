@@ -15,8 +15,6 @@ class JobsController < ApplicationController
     #make an api call to indeed with the search query
     @jobs = client.search(terms)
 
-    binding.pry
-
     respond_to do |format|
       format.js { render layout: false }
     end
