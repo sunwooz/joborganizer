@@ -24,6 +24,7 @@ gem 'haml-rails'
 gem 'pry'
 gem 'indeed_api'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'rack-cors', :require => 'rack/cors'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
