@@ -9,7 +9,8 @@ class JobsController < ApplicationController
       q: params[:query],
       l: params[:location],
       userip: request.remote_ip,
-      useragent: request.env['HTTP_USER_AGENT']
+      useragent: request.env['HTTP_USER_AGENT'],
+      start: 0
     }
 
     #make an api call to indeed with the search query
