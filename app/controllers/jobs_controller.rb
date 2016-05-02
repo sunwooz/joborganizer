@@ -1,9 +1,9 @@
 require 'indeed-ruby'
 
 class JobsController < ApplicationController
-  def search
+  before_filter :initialize_indeed_client, only: [:search]
 
-    client = Indeed::Client.new('6354264415606633')
+  def search
 
     terms = {
       q: params[:query],
@@ -14,12 +14,28 @@ class JobsController < ApplicationController
     }
 
     #make an api call to indeed with the search query
-    @jobs = client.search(terms)
-
+    @jobs = @client.search(terms)
 
     respond_to do |format|
       format.js { render layout: false }
     end
 
   end
+
+  def create
+    job = Job.new(user_id: current_user.id, jobkey: params[:jobkey])
+    if job.save
+      respond_to do |format|
+        format.js { render layout: false }
+      end
+    else
+      redirect_to root_url
+    end
+  end
+
+  private
+
+    def initialize_indeed_client
+      @client = Indeed::Client.new('6354264415606633')
+    end
 end

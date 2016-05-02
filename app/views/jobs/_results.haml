@@ -1,5 +1,8 @@
 - @jobs["results"].each do |job|
+  
+  .hidden{ :style => 'display: none;', "data-jobkey" => job["jobkey"] }
   %b= job["jobtitle"]
   / %li= job["sponsored"]
   = job["company"]
+  = link_to "save", user_jobs_path(current_user, jobkey: job["jobkey"]), :method => :post, remote: true
   %br
