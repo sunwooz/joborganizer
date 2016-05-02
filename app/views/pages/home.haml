@@ -1,4 +1,4 @@
-.row
+.row#main-row
   .col-xs-4
     = form_tag('/jobs/search', remote: true, method: 'get', format: :js) do
       = label_tag(:query, 'search for:')
@@ -10,5 +10,5 @@
 
     #results
 
-  .col-xs-8
+  .col-xs-8#show-column
     #show
