@@ -53,6 +53,7 @@ class JobsController < ApplicationController
 
     searched_job = @client.jobs(criteria)
     @job = searched_job["results"][0]
+    @url = replace_protocal_with_blank(@job["url"])
 
     respond_to do |format|
       format.js { render layout: false }
@@ -65,4 +66,14 @@ class JobsController < ApplicationController
     def initialize_indeed_client
       @client = Indeed::Client.new('6354264415606633')
     end
+
+    def replace_protocal_with_blank(url)
+      if url.include?('https:')
+        url = url.gsub("https:", "")
+      else
+        url = url.gsub("http:", "")
+      end
+      url
+    end
+
 end
