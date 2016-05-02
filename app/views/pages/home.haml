@@ -1,13 +1,14 @@
-//search
+.row
+  .col-xs-4
+    = form_tag('/jobs/search', remote: true, method: 'get', format: :js) do
+      = label_tag(:query, 'search for:')
+      = text_field_tag(:query)
+      = label_tag(:location, 'location:')
+      = text_field_tag(:location)
+      = submit_tag('search')
 
-= form_tag('/jobs/search', remote: true, method: 'get', format: :js) do
-  = label_tag(:query, 'search for:')
-  = text_field_tag(:query)
-  = label_tag(:location, 'location:')
-  = text_field_tag(:location)
-  = submit_tag('search')
 
+    #results
 
-#results
-
-#show
+  .col-xs-8
+    #show
