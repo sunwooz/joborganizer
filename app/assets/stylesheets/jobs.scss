@@ -5,3 +5,8 @@
 html, body, #show-column, #show, div#container, .row#main-row {
   height: 100%;
 }
+
+#iframe-container {
+  background:url(loader.gif) center center no-repeat;
+  height: 100%;
+}
