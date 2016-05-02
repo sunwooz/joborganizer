@@ -33,6 +33,14 @@ class JobsController < ApplicationController
     end
   end
 
+  def index
+    @jobs = current_user.jobs
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   private
 
     def initialize_indeed_client
