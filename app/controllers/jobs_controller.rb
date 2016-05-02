@@ -23,6 +23,7 @@ class JobsController < ApplicationController
   end
 
   def create
+
     job = Job.new(user_id: current_user.id, jobkey: params[:jobkey])
     if job.save
       respond_to do |format|
@@ -31,25 +32,32 @@ class JobsController < ApplicationController
     else
       redirect_to root_url
     end
+
   end
 
   def index
+
     @jobs = current_user.jobs
 
     respond_to do |format|
       format.html
     end
+
   end
 
   def show
+
     criteria = {
       jobkeys: [ params[:id] ]
     }
-    @job = @client.jobs(criteria)
+
+    searched_job = @client.jobs(criteria)
+    @job = searched_job["results"][0]
 
     respond_to do |format|
       format.js { render layout: false }
     end
+
   end
 
   private
