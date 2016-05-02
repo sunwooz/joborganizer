@@ -1,7 +1,7 @@
 require 'indeed-ruby'
 
 class JobsController < ApplicationController
-  before_filter :initialize_indeed_client, only: [:search]
+  before_filter :initialize_indeed_client, only: [:search, :show]
 
   def search
 
@@ -38,6 +38,17 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       format.html
+    end
+  end
+
+  def show
+    criteria = {
+      jobkeys: [ params[:id] ]
+    }
+    @job = @client.jobs(criteria)
+
+    respond_to do |format|
+      format.js { render layout: false }
     end
   end
 
