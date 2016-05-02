@@ -1,3 +1,5 @@
-%ul
-  - @jobs["results"].each do |job|
-    %li= job["jobtitle"]
+- @jobs["results"].each do |job|
+  %b= job["jobtitle"]
+  / %li= job["sponsored"]
+  = job["company"]
+  %br
