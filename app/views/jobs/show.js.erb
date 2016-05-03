@@ -2,13 +2,19 @@
 $('#show').html('');
 $('#show').append("<%= j render(:partial => 'jobs/show', :locals => { :job => @job, :url => @url }) %>");
 
+(function() {
+    [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+        new CBPFWTabs( el );
+    });
+})();
+
 var iframe = document.getElementsByTagName('iframe')[0];
 var url = "<%= j @url %>";
 
 var getData = function (data) {
     if (data && data.query && data.query.results && data.query.results.resources && data.query.results.resources.content && data.query.results.resources.status == 200) loadHTML(data.query.results.resources.content);
     else if (data && data.error && data.error.description) loadHTML(data.error.description);
-    else loadHTML("Cannot load website please go directly here " + "<a href='" + url + "' target='_blank'>")
+    else loadHTML("Cannot load website please go directly " + "<a href='" + url + "' target='_blank'>here</a>")
 };
 
 var loadURL = function (src) {
