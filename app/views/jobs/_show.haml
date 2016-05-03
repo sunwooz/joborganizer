@@ -4,16 +4,16 @@
       %ul
         %li
           %a.icon.icon-home{:href => "#section-bar-1"}
-            %span Details
+            %span Job
         %li
           %a.icon.icon-box{:href => "#section-bar-2"}
-            %span Archive
+            %span Details
         %li
           %a.icon.icon-display{:href => "#section-bar-3"}
-            %span Analytics
+            %span Cover Letter
         %li
           %a.icon.icon-upload{:href => "#section-bar-4"}
-            %span Upload
+            %span Map
         %li
           %a.icon.icon-tools{:href => "#section-bar-5"}
             %span Settings
@@ -22,7 +22,8 @@
         #iframe-container
           %iframe{ :width => "100%", :height => "100%" }
       %section#section-bar-2
-        %p 2
+        = @job["jobtitle"]
+        = @job["company"]
       %section#section-bar-3
         %p 3
       %section#section-bar-4
