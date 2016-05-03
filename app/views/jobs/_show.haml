@@ -31,7 +31,16 @@
         %p.detail Posted: #{@job["formattedRelativeTime"]}
 
       %section#section-bar-3
-        %p 3
+        - if !@job_record.cover_letter
+          = form_for([current_user, @job_record, CoverLetter.new()], remote: true, url: user_job_cover_letter_path(current_user, @job_record)) do |f|
+            = f.label :letter
+            = f.text_area :letter
+            = f.submit "save"
+        - else
+          = form_for([current_user, @job_record, @cover_letter], remote: true, url: user_job_cover_letter_path(current_user, @job_record)) do |f|
+            = f.label :letter
+            = f.text_area :letter
+            = f.submit "save"
       %section#section-bar-4
         %p 4
       %section#section-bar-5

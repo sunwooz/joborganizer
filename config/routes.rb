@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :user do
-    resources :jobs
+    resources :jobs do
+      resource :cover_letter
+    end
   end
   
   root 'pages#home'
