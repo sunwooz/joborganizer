@@ -22,8 +22,16 @@
         #iframe-container
           %iframe{ :width => "100%", :height => "100%" }
       %section#section-bar-2
-        = @job["jobtitle"]
-        = @job["company"]
+        %p.detail Job Title: #{@job["jobtitle"]}
+        %p.detail Company: #{@job["company"]}
+        %p.detail City: #{@job["city"]}
+        %p.detail State: #{@job["state"]}
+        %p.detail Country: #{@job["country"]}
+        %p.detail Location: #{@job["formattedLocation"]}
+        %p.detail Snippet: #{@job["snippet"]}
+        %p.detail Url: #{@job["url"]}
+        %p.detail Posted: #{@job["formattedRelativeTime"]}
+
       %section#section-bar-3
         %p 3
       %section#section-bar-4
