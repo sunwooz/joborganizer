@@ -24,12 +24,10 @@
       %section#section-bar-2
         %p.detail Job Title: #{@job["jobtitle"]}
         %p.detail Company: #{@job["company"]}
-        %p.detail City: #{@job["city"]}
-        %p.detail State: #{@job["state"]}
-        %p.detail Country: #{@job["country"]}
         %p.detail Location: #{@job["formattedLocation"]}
+        %p.detail Country: #{@job["country"]}
         %p.detail Snippet: #{@job["snippet"]}
-        %p.detail Url: #{@job["url"]}
+        %p.detail Url: #{ link_to "Job Link", @job["url"], target: "_blank" }
         %p.detail Posted: #{@job["formattedRelativeTime"]}
 
       %section#section-bar-3

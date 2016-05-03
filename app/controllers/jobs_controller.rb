@@ -27,10 +27,12 @@ class JobsController < ApplicationController
     job = Job.new(user_id: current_user.id, jobkey: params[:jobkey])
     if job.save
       respond_to do |format|
-        format.js { render layout: false }
+        format.js { render layout: false, action: "success" }
       end
     else
-      redirect_to root_url
+      respond_to do |format|
+        format.js { render layout: false, action: "failure" }
+      end
     end
 
   end
