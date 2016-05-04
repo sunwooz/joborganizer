@@ -26,6 +26,9 @@ gem 'indeed_api'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rack-cors', :require => 'rack/cors'
 gem "binding_of_caller"
+gem "omniauth"
+gem "omniauth-linkedin"
+gem "multi_json"
 
 group :development do
   gem "better_errors"

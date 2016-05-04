@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       resource :cover_letter
     end
   end
+
+  resources :authentications
+  get '/auth/:provider/callback' => 'authentications#create'
   
   root 'pages#home'
 
