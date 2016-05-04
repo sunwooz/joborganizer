@@ -42,6 +42,7 @@ class JobsController < ApplicationController
 
     @job = searched_job["results"][0]
     @url = replace_protocal_with_blank(@job["url"])
+    @job_detail = current_user.job_details.find_by(jobkey: params[:id])
 
     respond_to do |format|
       format.js { render layout: false }
