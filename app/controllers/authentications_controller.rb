@@ -6,6 +6,7 @@ class AuthenticationsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
+
     if current_user.authentications.pluck(:provider).include?(auth["provider"]) && current_user.authentications.pluck(:uid).include?(auth["uid"])  
       current_user.authentications.find_by_provider_and_uid(auth["provider"], auth["uid"])
     else

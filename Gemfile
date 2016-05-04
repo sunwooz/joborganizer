@@ -28,6 +28,7 @@ gem 'rack-cors', :require => 'rack/cors'
 gem "binding_of_caller"
 gem "omniauth"
 gem "omniauth-linkedin"
+gem "linkedin"
 gem "multi_json"
 
 group :development do
