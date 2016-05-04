@@ -1,6 +1,6 @@
 .row#main-row
   .col-xs-4
-    = form_tag('/jobs/search', remote: true, method: 'get', format: :js) do
+    = form_tag(job_search_path, remote: true, method: 'get') do
       = text_field_tag(:query, nil, placeholder: 'Search Term')
       = text_field_tag(:location, nil, placeholder: 'Location')
       = submit_tag('search')

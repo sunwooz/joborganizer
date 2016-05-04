@@ -22,21 +22,6 @@ class JobsController < ApplicationController
 
   end
 
-  def create
-
-    job = Job.new(user_id: current_user.id, jobkey: params[:jobkey])
-    if job.save
-      respond_to do |format|
-        format.js { render layout: false, action: "success" }
-      end
-    else
-      respond_to do |format|
-        format.js { render layout: false, action: "failure" }
-      end
-    end
-
-  end
-
   def index
 
     @jobs = current_user.jobs
@@ -56,14 +41,7 @@ class JobsController < ApplicationController
     searched_job = @client.jobs(criteria)
 
     @job = searched_job["results"][0]
-    @job_record = Job.find_by(jobkey: params[:id])
     @url = replace_protocal_with_blank(@job["url"])
-
-    if @job_record.cover_letter
-      @cover_letter = @job_record.cover_letter
-    else
-      @cover_letter = CoverLetter.new
-    end
 
     respond_to do |format|
       format.js { render layout: false }

@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :user do
-    resources :jobs do
-      resource :cover_letter
-    end
-  end
+  resources :user
+
+  #jobs controller
+  get '/jobs/search' => 'jobs#search', as: :job_search
+  get '/jobs/:id' => 'jobs#show', as: :job
+  get '/users/:user_id/jobs' => 'jobs#index', as: :user_jobs
 
   resources :authentications
   get '/auth/:provider/callback' => 'authentications#create'
   
   root 'pages#home'
 
-  get 'jobs/search' => 'jobs#search'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

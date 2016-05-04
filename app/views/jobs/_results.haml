@@ -1,6 +1,5 @@
 - @jobs["results"].each do |job|
   .job-card
-    %b= link_to job["jobtitle"], user_job_path(current_user, job["jobkey"]), remote: true
+    %b= link_to job["jobtitle"], job_path(job["jobkey"]), remote: true
     %br
     = job["company"]
-    = link_to "save", user_jobs_path(current_user, jobkey: job["jobkey"]), :method => :post, remote: true
