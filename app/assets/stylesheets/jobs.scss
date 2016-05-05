@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 html, body, #show-column, #show, div#container, .row#main-row, #section-bar-1, .content-wrap, .tabs, section {
   height: 100%;
 }
@@ -33,4 +34,12 @@ p.detail {
   color: black !important;
   text-align: left;
   font-weight: 300 !important;
+}
+
+#user_nav {
+  text-align: right;
+}
+
+#user_links {
+  float: left;
 }

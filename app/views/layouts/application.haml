@@ -9,6 +9,9 @@
     #container
       .row
         .col-xs-12
+          - if user_signed_in?
+            #user_links
+              = link_to "My Jobs", user_jobs_path(current_user)
           #user_nav
             - if user_signed_in?
               Logged in as
@@ -23,9 +26,6 @@
               \#{link_to "Login", new_user_session_path}
           - flash.each do |name, msg|
             = content_tag :div, msg, id: "flash_#{name}"
-
-          - if user_signed_in?
-            = link_to "My Jobs", user_jobs_path(current_user)
 
       = yield
           
