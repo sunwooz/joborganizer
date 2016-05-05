@@ -31,22 +31,11 @@
         %p.detail Posted: #{@job["formattedRelativeTime"]}
 
       %section#section-bar-3
-        %p.detail Admin Save - temporary
-        = link_to "Interested In Job", user_job_details_path(current_user, JobDetail.new, jobkey: @job["jobkey"]), method: :post, remote: true
+        - if !@job_detail
+          = link_to "Interested In Job", user_job_details_path(current_user, JobDetail.new, jobkey: @job["jobkey"]), method: :post, remote: true, id: 'Interested'
 
 
-        - if @job_detail
-          = form_for([current_user, @job_detail], remote: true) do |f|
-            = f.text_area :cover_letter
-            = f.submit "Save"
-        / - if @job_record && @job_record.cover_letter
-        /   = form_for([current_user, @job_record, @cover_letter], remote: true, url: user_job_cover_letter_path(current_user, @job_record)) do |f|
-        /     = f.text_area :letter
-        /     = f.submit "save"
-        / - else
-        /   = form_for([current_user, @job_record, CoverLetter.new()], remote: true, url: user_job_cover_letter_path(current_user, @job_record)) do |f|
-        /     = f.text_area :letter
-        /     = f.submit "save"
+        = render "job_details/cover_letter_form"
           
       %section#section-bar-4
         %p 4

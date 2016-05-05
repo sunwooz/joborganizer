@@ -1,0 +1,4 @@
+- if @job_detail
+  = form_for([current_user, @job_detail], remote: true) do |f|
+    = f.text_area :cover_letter
+    = f.submit "Save"
