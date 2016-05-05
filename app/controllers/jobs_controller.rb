@@ -10,7 +10,13 @@ class JobsController < ApplicationController
       l: params[:location],
       userip: request.remote_ip,
       useragent: request.env['HTTP_USER_AGENT'],
-      start: 0
+      start: params[:start]
+    }
+
+    @pagination_variables = {
+      query: params[:query],
+      location: params[:location],
+      start: params[:start]
     }
 
     #make an api call to indeed with the search query
@@ -41,6 +47,7 @@ class JobsController < ApplicationController
     searched_job = @client.jobs(criteria)
 
     @job = searched_job["results"][0]
+
     @url = replace_protocal_with_blank(@job["url"])
     @job_detail = current_user.job_details.find_by(jobkey: params[:id])
 

@@ -1,9 +1,17 @@
 .row#main-row
   .col-xs-4
+    %input#hidden_query{ type: 'hidden', name: 'query' }
+    %input#hidden_location{ type: 'hidden', name: 'location' }
+    %input#hidden_start{ type: 'hidden', name: 'start' }
     = form_tag(job_search_path, remote: true, method: 'get') do
       = text_field_tag(:query, nil, placeholder: 'Search Term')
       = text_field_tag(:location, nil, placeholder: 'Location')
+      = hidden_field_tag('start', 0)
       = submit_tag('search')
+
+    #pagination_buttons
+      %a#prev.pagination{ href: "#" } Prev
+      %a#next.pagination{ href: "#" } Next
 
 
     #results

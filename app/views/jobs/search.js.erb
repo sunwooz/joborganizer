@@ -1,2 +1,6 @@
 $('#results').html('')
 $('#results').append("<%= j render(:partial => 'jobs/results', :locals => { :jobs => @jobs }) %>");
+$('#hidden_query').val("<%= j @pagination_variables[:query] %>")
+$('#hidden_location').val("<%= j @pagination_variables[:location] %>")
+$('#hidden_start').val("<%= @pagination_variables[:start] %>")
+$('#next, #prev').show()
