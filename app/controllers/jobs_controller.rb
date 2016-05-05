@@ -30,7 +30,7 @@ class JobsController < ApplicationController
 
   def index
 
-    @jobs = current_user.jobs
+    @jobs = current_user.job_details.pluck(:jobkey)
 
     respond_to do |format|
       format.html
