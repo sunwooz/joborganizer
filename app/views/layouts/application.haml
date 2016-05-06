@@ -8,7 +8,7 @@
   %body
     #container
       .row
-        .col-xs-12
+        .col-xs-12#nav
           - if user_signed_in?
             #user_links
               = link_to "My Jobs", user_jobs_path(current_user)

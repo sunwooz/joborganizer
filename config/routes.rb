@@ -14,5 +14,8 @@ Rails.application.routes.draw do
 
   #job_details_controller
   post '/users/:user_id/job_details' => 'job_details#create', as: :user_job_details
-  patch '/users/:user_id/job_details/:job_detail_id' => 'job_details#update', as: :user_job_detail  
+  patch '/users/:user_id/job_details/:job_detail_id' => 'job_details#update', as: :user_job_detail
+
+  #application_statuses_controller
+  post 'job_details/:job_detail_id/application_statuses' => 'application_statuses#create', as: :job_detail_application_statuses
 end

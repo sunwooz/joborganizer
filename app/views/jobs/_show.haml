@@ -39,6 +39,15 @@
           
       %section#section-bar-4
         %p.detail checklist tab
+        = form_for([@job_detail, ApplicationStatus.new], remote: true) do |f|
+          = f.label :name
+          = f.text_field :name
+          = f.submit "Create Status"
+
+        - @job_detail.job_statuses.each do |js|
+          = check_box_tag(js.application_status.name, nil, js.checked)
+          = label_tag js.application_status.name
+          %br
         
       %section#section-bar-5
         %p 5
