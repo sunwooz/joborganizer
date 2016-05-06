@@ -1,3 +1,16 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#nav {
+  border-bottom: 1px solid black;
+  padding: 10px 40px 10px 40px;
+}
+
+#user_nav {
+  float: right;
+}
+
+#container {
+  overflow-x: hidden;
+}
