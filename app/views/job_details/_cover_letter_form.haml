@@ -3,14 +3,4 @@
   = f.text_area :cover_letter, class: "tinymce", id: "cover-letter-#{@job_detail.id}"
   = f.submit "Save", id: "cover-letter-save"
 
-:javascript
-  $(document).ready(function() {
-    $('a#interested').hide();
-    tinyMCE.editors=[]
-    tinyMCE.init({ 
-      selector: '.tinymce',
-      height: 300
-    });
-
-  });
   

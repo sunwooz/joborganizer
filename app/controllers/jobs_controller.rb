@@ -20,7 +20,7 @@ class JobsController < ApplicationController
     }
 
     #make an api call to indeed with the search query
-    @jobs = @client.search(terms)
+    @jobs = @client.search(terms)["results"]
 
     respond_to do |format|
       format.js { render layout: false }
@@ -39,7 +39,7 @@ class JobsController < ApplicationController
     @job = searched_job["results"][0]
 
     @url = replace_protocal_with_blank(@job["url"])
-    @job_detail = current_user.job_details.find_by(jobkey: params[:id])
+    @job_detail = current_user.job_details.find_by(jobkey: params[:jobkey])
 
     respond_to do |format|
       format.js { render layout: false }

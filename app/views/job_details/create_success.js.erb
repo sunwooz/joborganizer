@@ -1,2 +1,12 @@
 $('#cover-letter-wrapper').append("<%= j render 'cover_letter_form' %>")
 $('#note-wrapper').append("<%= j render 'note_form' %>")
+
+$(document).ready(function() {
+  $('a#interested').hide();
+  tinyMCE.editors=[]
+  tinyMCE.init({ 
+    selector: '.tinymce',
+    height: 300
+  });
+
+});
