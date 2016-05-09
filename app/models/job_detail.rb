@@ -1,6 +1,5 @@
 class JobDetail < ActiveRecord::Base
   # validates_uniqueness_of :jobkey, if: :jobkey_is_unique_to_user
-  
   belongs_to :user
   
   private
