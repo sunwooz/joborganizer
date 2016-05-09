@@ -7,7 +7,7 @@
             %span Job
         %li
           %a.icon.icon-box{:href => "#section-bar-2"}
-            %span Details
+            %span Website
         %li
           %a.icon.icon-display.cover-letter-tab{:href => "#section-bar-3"}
             %span Cover Letter
@@ -19,9 +19,6 @@
             %span Friends
     .content-wrap
       %section#section-bar-1
-        #iframe-container
-          %iframe{ :width => "100%", :height => "100%" }
-      %section#section-bar-2
         %p.detail Job Title: #{@job["jobtitle"]}
         %p.detail Company: #{@job["company"]}
         %p.detail Location: #{@job["formattedLocation"]}
@@ -29,13 +26,16 @@
         %p.detail Snippet: #{@job["snippet"]}
         %p.detail Url: #{ link_to "Job Link", @job["url"], target: "_blank" }
         %p.detail Posted: #{@job["formattedRelativeTime"]}
+      %section#section-bar-2
+        #iframe-container
+          %iframe{ :width => "100%", :height => "100%" }
 
       %section#section-bar-3
-        - if !@job_detail
-          = link_to "Interested In Job", user_job_details_path(current_user, JobDetail.new, jobkey: @job["jobkey"]), method: :post, remote: true, id: 'Interested'
-
-
-        = render "job_details/cover_letter_form"
+        #cover-letter-wrapper
+          - if !@job_detail
+            = link_to "Interested In Job", user_job_details_path(current_user, JobDetail.new, jobkey: @job["jobkey"]), method: :post, remote: true, id: 'interested'
+          - else
+            = render "job_details/cover_letter_form"
           
       %section#section-bar-4
         %p.detail checklist tab

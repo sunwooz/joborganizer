@@ -1,10 +1,10 @@
 class JobDetailsController < ApplicationController
 
   def create
-    job_detail = current_user.job_details.new(jobkey: params[:jobkey], user_id: params[:user_id])
+    @job_detail = current_user.job_details.new(jobkey: params[:jobkey], user_id: params[:user_id])
     
     respond_to do |format|
-      if job_detail.save
+      if @job_detail.save
         format.js { render layout: false, action: "create_success" }
       else
         format.js { render layout: false, action: "create_failure" }
@@ -27,7 +27,7 @@ class JobDetailsController < ApplicationController
   private
 
   def strong_params
-    params.require(:job_detail).permit(:jobkey, :user_id, :cover_letter)
+    params.require(:job_detail).permit(:jobkey, :user_id, :cover_letter, :note)
   end
 
 
