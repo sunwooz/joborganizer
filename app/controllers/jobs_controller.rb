@@ -28,20 +28,10 @@ class JobsController < ApplicationController
 
   end
 
-  def index
-
-    @jobs = current_user.job_details.pluck(:jobkey)
-
-    respond_to do |format|
-      format.html
-    end
-
-  end
-
   def show
 
     criteria = {
-      jobkeys: [ params[:id] ]
+      jobkeys: [ params[:jobkey] ]
     }
 
     searched_job = @client.jobs(criteria)

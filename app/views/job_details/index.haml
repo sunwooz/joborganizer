@@ -1,0 +1,12 @@
+.row#main-row
+  .col-xs-4
+
+    #pagination_buttons
+      %a#prev.pagination{ href: "#" } Prev
+      %a#next.pagination{ href: "#" } Next
+
+    #results
+      = render "user_jobs"
+
+  .col-xs-8#show-column
+    #show

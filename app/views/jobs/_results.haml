@@ -1,4 +1,4 @@
-- @jobs["results"].each do |job|
+- @jobs.each do |job|
   .job-card
     %b= link_to job["jobtitle"], job_path(job["jobkey"]), remote: true
     %br

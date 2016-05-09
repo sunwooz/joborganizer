@@ -1,8 +1,15 @@
 class JobDetailsController < ApplicationController
+  def index
+    @jobs = current_user.job_details
 
+    respond_to do |format|
+      format.html
+    end
+  end
+  
   def create
     @job_detail = current_user.job_details.new(jobkey: params[:jobkey], user_id: params[:user_id])
-    
+    binding.pry
     respond_to do |format|
       if @job_detail.save
         format.js { render layout: false, action: "create_success" }
