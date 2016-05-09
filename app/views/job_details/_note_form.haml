@@ -1,0 +1,5 @@
+= form_for([current_user, @job_detail], remote: true, namespace: 'note') do |f|
+  = f.text_area :note, class: "tinymce", id: "note-#{@job_detail.id}"
+  = f.submit "Save"
+
+  

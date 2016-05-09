@@ -1,7 +1,7 @@
 
-= form_for([current_user, @job_detail], remote: true) do |f|
-  = f.text_area :cover_letter, class: "tinymce", id: @job_detail.id
-  = f.submit "Save"
+= form_for([current_user, @job_detail], remote: true, namespace: 'cover-letter') do |f|
+  = f.text_area :cover_letter, class: "tinymce", id: "cover-letter-#{@job_detail.id}"
+  = f.submit "Save", id: "cover-letter-save"
 
 :javascript
   $(document).ready(function() {
@@ -11,5 +11,6 @@
       selector: '.tinymce',
       height: 300
     });
+
   });
   

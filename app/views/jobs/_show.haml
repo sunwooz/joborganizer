@@ -38,7 +38,11 @@
             = render "job_details/cover_letter_form"
           
       %section#section-bar-4
-        %p.detail checklist tab
-        
+        #note-wrapper
+          - if !@job_detail
+            = link_to "Interested In Job", user_job_details_path(current_user, JobDetail.new, jobkey: @job["jobkey"]), method: :post, remote: true, id: 'interested'
+          - else
+            = render "job_details/note_form"
+
       %section#section-bar-5
         %p 5

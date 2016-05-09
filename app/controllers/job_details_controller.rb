@@ -14,7 +14,7 @@ class JobDetailsController < ApplicationController
 
   def update
     job_detail = current_user.job_details.find(params[:job_detail_id])
-    
+
     respond_to do |format|
       if job_detail.update(strong_params)
         format.js { render layout: false, action: "update_success" }
