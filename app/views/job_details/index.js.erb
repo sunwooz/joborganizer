@@ -1,0 +1,2 @@
+$('#results').html('')
+$('#results').append("<%= j render(:partial => 'job_details/user_jobs', :locals => { :jobs => @jobs }) %>");

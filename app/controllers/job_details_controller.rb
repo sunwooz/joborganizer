@@ -3,12 +3,12 @@ class JobDetailsController < ApplicationController
     @jobs = current_user.job_details
 
     respond_to do |format|
-      format.html
+      format.js { render layout: false }
     end
   end
   
   def create
-    @job_detail = current_user.job_details.new(jobkey: params[:jobkey], user_id: params[:user_id])
+    @job_detail = current_user.job_details.new(jobkey: params[:jobkey], user_id: params[:user_id], company: params[:company], title: params[:title])
 
     respond_to do |format|
       if @job_detail.save
@@ -34,7 +34,7 @@ class JobDetailsController < ApplicationController
   private
 
   def strong_params
-    params.require(:job_detail).permit(:jobkey, :user_id, :cover_letter, :note)
+    params.require(:job_detail).permit(:jobkey, :user_id, :cover_letter, :note, :company, :title)
   end
 
 

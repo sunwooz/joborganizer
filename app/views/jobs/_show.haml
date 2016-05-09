@@ -33,7 +33,7 @@
       %section#section-bar-3
         #cover-letter-wrapper
           - if !@job_detail
-            = link_to "Interested In Job", user_job_details_path(current_user, JobDetail.new, jobkey: @job["jobkey"], company: @job["company"]), method: :post, remote: true, id: 'interested'
+            = link_to "Interested In Job", user_job_details_path(current_user, JobDetail.new, jobkey: @job["jobkey"], company: @job["company"], title: @job["jobtitle"]), method: :post, remote: true, id: 'interested'
           - else
             = render "job_details/cover_letter_form"
 
@@ -50,7 +50,7 @@
       %section#section-bar-4
         #note-wrapper
           - if !@job_detail
-            = link_to "Interested In Job", user_job_details_path(current_user, JobDetail.new, jobkey: @job["jobkey"], company: @job["company"]), method: :post, remote: true, id: 'interested'
+            = link_to "Interested In Job", user_job_details_path(current_user, JobDetail.new, jobkey: @job["jobkey"], company: @job["company"], title: @job["jobtitle"]), method: :post, remote: true, id: 'interested'
           - else
             = render "job_details/note_form"
 
