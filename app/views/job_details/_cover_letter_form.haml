@@ -1,4 +1,10 @@
 - if @job_detail
   = form_for([current_user, @job_detail], remote: true) do |f|
-    = f.text_area :cover_letter
+    = f.text_area :cover_letter, class: "tinymce", id: @job_detail.id
     = f.submit "Save"
+
+:javascript
+  $('.cover-letter-tab').click(function() {
+    tinyMCE.editors=[]
+    tinyMCE.init({ selector: '.tinymce' })
+  });
