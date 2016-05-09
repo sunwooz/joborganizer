@@ -2,6 +2,26 @@
 $('#show').html('');
 $('#show').append("<%= j render(:partial => 'jobs/show', :locals => { :job => @job, :url => @url, :job_detail => @job_detail }) %>");
 
+
+
+// $(document).ready(function() {
+//   $('.cover-letter-tab, .note-tab').click(function() {
+//     console.log($(this))
+//     if ( $(this).attr('class') == 'note-tab' ) {
+//       selector = '#note'
+//     } else {
+//       selector = '#cover-letter'
+//     }
+
+//     tinyMCE.editors=[]
+//     tinyMCE.init({ 
+//       selector: selector,
+//       height: 300
+//     });
+//   })
+// });
+
+
 (function() {
     [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
         new CBPFWTabs( el );

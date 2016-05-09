@@ -12,7 +12,7 @@
           %a.icon.icon-display.cover-letter-tab{:href => "#section-bar-3"}
             %span Cover Letter
         %li
-          %a.icon.icon-upload{:href => "#section-bar-4"}
+          %a.icon.icon-upload.note-tab{:href => "#section-bar-4"}
             %span Notes
         %li
           %a.icon.icon-tools{:href => "#section-bar-5"}
@@ -38,13 +38,10 @@
             = render "job_details/cover_letter_form"
 
             :javascript
-              $(document).ready(function() {
-                $('a#interested').hide();
-                tinyMCE.editors=[]
-                tinyMCE.init({ 
-                  selector: '.tinymce',
-                  height: 300
-                });
+              tinyMCE.editors=[]
+              tinyMCE.init({ 
+                selector: '.tinymce',
+                height: 300
               });
           
       %section#section-bar-4
@@ -53,16 +50,6 @@
             = link_to "Interested In Job", user_job_details_path(current_user, JobDetail.new, jobkey: @job["jobkey"], company: @job["company"], title: @job["jobtitle"]), method: :post, remote: true, id: 'interested'
           - else
             = render "job_details/note_form"
-
-            :javascript
-              $(document).ready(function() {
-                $('a#interested').hide();
-                tinyMCE.editors=[]
-                tinyMCE.init({ 
-                  selector: '.tinymce',
-                  height: 300
-                });
-              });
 
       %section#section-bar-5
         %p 5
